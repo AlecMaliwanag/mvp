@@ -1,0 +1,37 @@
+{
+  "name": "lol_base_stat_calculator",
+  "version": "1.0.0",
+  "description": "this app calculates a champion's base stats over time and visualizes them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlecMaliwanag/2016-09-mvp.git"
+  },
+  "keywords": [
+    "league",
+    "of",
+    "legends",
+    "stats",
+    "d3",
+    "angular",
+    "express",
+    "mongodb"
+  ],
+  "author": "Alec Maliwanag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlecMaliwanag/2016-09-mvp/issues"
+  },
+  "homepage": "https://github.com/AlecMaliwanag/2016-09-mvp#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "request": "^2.75.0",
+    "underscore": "^1.8.3"
+  }
+}
