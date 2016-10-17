@@ -18,27 +18,38 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  League of Legends Champion Base Stats Visualizer and Analyzer
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  This app is for all gamers who play league of legends.  They will be able to use this app to better understand the strengths and weaknesses of various champions at different times in the game.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  In league of Legends, many of the characters stats are opaque, affected by dozens of modifiers in ways that are not clearly articulated.  This app focuses on one aspect of a character's stats called "base stats" and will visualize a champion's base stats over time and compare them to similar characters.  People who use this app will be able to get a clear sense of which champions are strongest in particular aspects at different times in a game.  This knowledge can help clients understand their particular character more as well as provide data to inform a team's 5 person champion composition.
 
 ## Problem ##
   > Describe the problem your product solves.
+  Champion stats in league of legends are incredibly complex and opaque.  This product clarifies stats so that players can optimizer their play based on stats.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  Scraping game static data from the League of Legends API, create custom analytic functions, and a searchable GUI.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails. Explore, Dream, Discover.
+Mark Twain
+  ""
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  just type a champions name
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  using this app helped me boost my rank 4 divisions.
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  load it and try the 'demo' feature.
