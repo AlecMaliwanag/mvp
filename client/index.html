@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--CDN RESOURCES -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="main.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+  <title></title>
+</head>
+<body ng-app = "league">
+<div ng-controller= "navController">
+  <nav id="topNav" class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">League of Legends App</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" ng-submit='search()'>
+          <input type="text" class="form-control" placeholder="Search..."  ng-model='searchChamp'>
+          <button >signin</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="#">Champion Calculator <span class="sr-only">(current)</span></a></li>
+        </ul>
+ 
+      </div>
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <ui-view></ui-view>
+      <!-- <div ng-repeat = "item in targetChamp.baseStats"> -->
+        <div class="col-xs-4">
+          <h3>Attack Damage</h3>
+          <svg id = "currentAttackDamage" width = "280" height = "280"> </svg>
+        </div>
+        <div class="col-xs-4">
+          <h3>Attack Speed</h3>
+          <svg id = "currentAttackSpeed" width = "280" height = "280"> </svg>
+        </div>
+        <div class="col-xs-4">
+          <h3>HP</h3>
+          <svg id = "currentHp" width = "280" height = "280"> </svg>
+        </div>
+        <div class="col-xs-4">
+          <h3>HP Regen</h3>
+          <svg id = "currentHpRegen" width = "280" height = "280"> </svg>
+        </div>
+        <div class="col-xs-4">
+          <h3>Mana</h3>
+          <svg id = "currentMana" width = "280" height = "280"> </svg>
+        </div>
+        <div class="col-xs-4">
+          <h3>Mana Regen</h3>
+          <svg id = "currentMpRegen" width = "280" height = "280"> </svg>
+        </div>
+        <div class="col-xs-4">
+          <h3>Magic Resist</h3>
+          <svg id = "currentSpellBlock" width = "280" height = "280"> </svg>
+        </div>
+        <div class="col-xs-4">
+          <h3>Armor</h3>
+          <svg id = "currentArmor" width = "280" height = "280"> </svg>
+        </div>
+
+      <!-- </div> -->
+  <script type="text/javascript" src="navController.js"></script> 
+  <script type="text/javascript" src="app.js"></script> 
+
+</body>
+</html>

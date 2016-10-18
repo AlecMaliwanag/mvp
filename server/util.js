@@ -4,7 +4,6 @@ module.exports = {
   lvlCalculator : function(level, champion) {
     var targetChampion = data.data[champion].stats;
     //Statistic= b+g×(n−1)×(0.685+0.0175×n)  b = base g = growth statistic n = champion level
-    console.log(targetChampion['armorperlevel'], "searching for armor");
     var baseStats = {
       level: level,
       currentArmor: targetChampion['armor'] + targetChampion['armorperlevel'] * (level -1) * (.685 + 0.0175*level),
@@ -17,7 +16,6 @@ module.exports = {
       currentMpRegen : targetChampion['mpregen'] + targetChampion['mpregenperlevel'] * (level -1) * (.685 + 0.0175*level),
       currentSpellBlock : targetChampion['spellblock'] + targetChampion['spellblockperlevel'] * (level -1) * (.685 + 0.0175*level)
     }
-    console.log(currentArmor,'currentArmor');
     return baseStats;
   },
   baseCalculatorAllLvls : function(champion) {
