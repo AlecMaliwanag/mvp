@@ -1,27 +1,25 @@
 var express = require('express'),
   fs = require('fs'),
-  _ = require('underscore'),
   Promise = require('bluebird'),
   request = require('request'),
-  bodyParser = require('body-parser');
-  var util = require('./util.js')
-  // env = require('env'),
-  // mysql = require('mysql');
+  bodyParser = require('body-parser'),
+  statUtil = require('./statUtilities.js'),
+  gameLogUtil = require('./gameHistoryUtilities.js'),
+  db = require('./databaseConfig.js').db;
 
-
-var app = express();
+//================ app variables ===================================================
 var riotEndpts = {
   summonerID: 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/',
   gameLog: 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/',
   apiKey: '?api_key=4a99a25b-dd7e-4698-8256-9b3b773fa3ed'
 }
+var app = express();
 
 //================================================================================
   // Middleware
 //================================================================================
 app.use(express.static( __dirname + '/../client'));
 app.use(bodyParser.json());
-
 
 //================================================================================
   // Routing
@@ -30,18 +28,32 @@ app.use(bodyParser.json());
 app.get('/*',function(req,res) {
   
 });
-
+//post requests
 app.post('/champion',function(req,res) {
-  console.log(req.body);
-  
-  res.end(JSON.stringify(util.baseCalculatorAllLvls(req.body.targetChamp)))
+  res.end(JSON.stringify(statUtil.baseCalculatorAllLvls(req.body.targetChamp)))
 })
-// request('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=spells,stats&api_key=4a99a25b-dd7e-4698-8256-9b3b773fa3ed').pipe(fs.createWriteStream('champdata.json'))
+
+app.post('/name', function(req, response) {
+  console.log('receive Post request')
+  var summoner = req.body.summonerTag;
+  console.log(req.body);
+  var riotId;
+  var recentGameData;
+
+  //request to get summoner id from summoner name
+  request.get(riotEndpts.summonerID + summoner + riotEndpts.apiKey, function(err, req, res) {
+    riotId = JSON.parse(res)[summoner]['id'];
+    if(JSON.parse(res)[summoner]) {
+      //request to get summoner games from summoner id
+      request.get(riotEndpts.gameLog + riotId + '/recent' + riotEndpts.apiKey, function(err, req, res) {
+        recentGameData = gameLogUtil.dataCleaner(JSON.parse(res).games, riotId, summoner);
+        response.writeHead(201);
+        response.end(JSON.stringify(recentGameData));
+      })
+    }
+  });
+})
+
 console.log('Server is listening on port 1337');
-// var data = JSON.parse(fs.readFileSync('champdata.json','utf8'));
-// // console.log(data.data['Jinx'].stats);
-// console.log('armor calculator', util.lvlCalculator(5,'Maokai'));
-// console.log('all the stats for jinx', util.baseCalculatorAllLvls('Nautilus'))
-// console.log(data.data['Maokai'].stats);
 
 app.listen(1337);

@@ -1,5 +1,7 @@
 var fs = require('fs');
-var data = JSON.parse(fs.readFileSync('champdata.json','utf8')); 
+var data = JSON.parse(fs.readFileSync('champdata.json','utf8'));
+
+ 
 module.exports = {
   lvlCalculator : function(level, champion) {
     var targetChampion = data.data[champion].stats;
@@ -24,5 +26,5 @@ module.exports = {
       storage.push(this.lvlCalculator(i,champion))
     }
     return storage;
-  }
+  },
 }
