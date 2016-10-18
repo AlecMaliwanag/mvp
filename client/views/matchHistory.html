@@ -1,0 +1,12 @@
+<ul>
+  <div ng-repeat="game in games">
+  <li>Date: {{game.date}}  Time Played:  {{game.timePlayed}}  IP:  {{game.iPEarned}}</li>
+  <li >Win: {{game.win}}  game Mode: {{game.gameMode}}  Champion:  {{game.champion}}  Player Role:  {{game.playerRole}}</li>
+  <li >K/D/A: {{game.kills + '/' + game.deaths + '/' + game.assists}}  Largest Multi-Kill: {{game.largestMultiKill}}  Largest Killing Spree:  {{game.largestKillingSpree}}</li>
+  <li >DamageDealtToChampions: {{game.totalDamageDealtToChampions}}  Damage Taken:  {{game.totalDamageTaken}}</li>
+  <li >Wards Placed: {{game.wardsPlaced}}  Wards Killed: {{game.wardsKilled}}</li>
+  <br>
+  <br>
+  </div>
+
+</ul>
